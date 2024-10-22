@@ -1,58 +1,10444 @@
+public class TestApexClass {
 
-public class RelatedObjectClass{
-//the below shown result is when u set system mode as false 
-//when u set system mode as true u will get erroe only for last 3rd one
+    // Fields
+    private String field1;
+    private Integer field2;
+    private Boolean field3;
 
-//violations should be thrown for both SH_Sub_Regions__r,SH_Region__c 
-    public void foo(){
-      Map<Id,SH_Region_c> shRegionMap = new Map<Id,SH_Region___c>();
-      shRegionMap = new Map<Id, SH_Region__c>([
-      select id,name, (select id,name from SH_Sub_Regions__r) from SH_Region__c where id in :regionIdSet WITH SYSTEM_MODE ]);
-     }
-
-//violation should not be thrown as objects are declared
-    public void foo(){
-      Map<Id,SH_Region_c> shRegionMap = new Map<Id,SH_Region___c>();
-      if(Schema.sobjectType.SH_Regon__c.isAccessible() && Schema.sobjectType.SH_Sub_Rgion__c.isAccessible()){
-      shRegionMap = new Map<Id, SH_Region__c>([
-      select id,name, (select id,name from SH_Sub_Rgions__r) from SH_Regon__c where id in :regionIdSet WITH SYSTEM_MODE ]);
-     }
-     }
-
-//SH_Sub_Regions__r should get violation as it is not defined
-    public void foo2(){
-      Map<Id,SH_Region_c> shRegionMap = new Map<Id,SH_Region___c>();
-      if(Schema.sobjectType.SH_Regin__c.isAccessible()){
-      shRegionMap = new Map<Id, SH_Region__c>([
-      select id,name, (select id,name from SH_Sub_Regions__r) from SH_Regin__c where id in :regionIdSet WITH SYSTEM_MODE ]);
-     }
+    // Constructor
+    public TestApexClass(String field1, Integer field2, Boolean field3) {
+        this.field1 = field1;
+        this.field2 = field2;
+        this.field3 = field3;
     }
 
-//violation should be thrown if SYSTEM_MODE is set as false and violation should not be thrown if SYSTEM_MODE is set as true
-    public void foo(){
-      Map<Id,SH_Region_c> shRegionMap = new Map<Id,SH_Region___c>();
-      shRegionMap = new Map<Id, SH_Region__c>([
-      select id,name, (select id,name from SH_Sub_Rions__r) from SH_Reon__c where id in :regionIdSet WITH SYSTEM_MODE ]);
-     }
+    // Getters
+    public String getField1() {
+        return field1;
+    }
 
-//violation should be thrown as we didnt declared and we didnt used system/user/security
-    public void foo(){
-      Map<Id,SH_Region_c> shRegionMap = new Map<Id,SH_Region___c>();
-      shRegionMap = new Map<Id, SH_Region__c>([
-      select id,name, (select id,name from SH_Sb_Regions__r) from S_Region__c where id in :regionIdSet WITH  ]);
-     }
+    public Integer getField2() {
+        return field2;
+    }
 
-//violation should not be thrown 
-    public void foo(){
-      Map<Id,SH_Region_c> shRegionMap = new Map<Id,SH_Region___c>();
-      shRegionMap = new Map<Id, SH_Region__c>([
-      select id,name, (select id,name from SH_Sub_Regs__r) from SH_Ron__c where id in :regionIdSet WITH USER_MODE ]);
-     }
+    public Boolean isField3() {
+        return field3;
+    }
 
-//violation should not be thrown 
-    public void foo(){
-      Map<Id,SH_Region_c> shRegionMap = new Map<Id,SH_Region___c>();
-      shRegionMap = new Map<Id, SH_Region__c>([
-      select id,name, (select id,name from H_Sub_Regions__r) from H_Region__c where id in :regionIdSet WITH SECURITY_ENFORCED ]);
-     }
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+// Getters
+    public String getField1() {
+        return field1;
+    }
+
+    public Integer getField2() {
+        return field2;
+    }
+
+    public Boolean isField3() {
+        return field3;
+    }
+
+    // Setters
+    public void setField1(String field1) {
+        this.field1 = field1;
+    }
+
+    public void setField2(Integer field2) {
+        this.field2 = field2;
+    }
+
+    public void setField3(Boolean field3) {
+        this.field3 = field3;
+    }
+
+    // Example methods
+    public void method1() {
+        System.debug('Method 1 executed');
+    }
+
+    public void method2() {
+        System.debug('Method 2 executed');
+    }
+
+    public void method3() {
+        System.debug('Method 3 executed');
+    }
+
+    public void method4() {
+        System.debug('Method 4 executed');
+    }
+
+    public void method5() {
+        System.debug('Method 5 executed');
+    }
+
+    // Repeat method patterns for testing
+    public void repeatedMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 1, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 2, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 3, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 4, iteration: ' + i);
+        }
+    }
+
+    public void repeatedMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Repeated Method 5, iteration: ' + i);
+        }
+    }
+
+    // Additional dummy methods to increase line count
+    public void dummyMethod1() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 1, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod2() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 2, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod3() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 3, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod4() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 4, iteration: ' + i);
+        }
+    }
+
+    public void dummyMethod5() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Dummy Method 5, iteration: ' + i);
+        }
+    }
+
+    // Large method for additional lines
+    public void largeMethod() {
+        for (Integer i = 0; i < 1000; i++) {
+            System.debug('Large Method, line: ' + i);
+            if (i % 2 == 0) {
+                System.debug('Even line: ' + i);
+            } else {
+                System.debug('Odd line: ' + i);
+            }
+        }
+    }
+
+    // Main execution method
+    public static void execute() {
+        TestApexClass testInstance = new TestApexClass('Test', 1, true);
+        testInstance.method1();
+        testInstance.method2();
+        testInstance.method3();
+        testInstance.method4();
+        testInstance.method5();
+
+        testInstance.repeatedMethod1();
+        testInstance.repeatedMethod2();
+        testInstance.repeatedMethod3();
+        testInstance.repeatedMethod4();
+        testInstance.repeatedMethod5();
+        
+        testInstance.dummyMethod1();
+        testInstance.dummyMethod2();
+        testInstance.dummyMethod3();
+        testInstance.dummyMethod4();
+        testInstance.dummyMethod5();
+
+        testInstance.largeMethod();
+    }
+
+
 }
